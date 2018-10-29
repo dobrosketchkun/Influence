@@ -1,2 +1,2 @@
-# Influence Experimental
-**Influence Experimental** - это версия Influence, которая написана с нуля. Она использует новую архитектуру, новый GUI и новые возможности. Документация появится чуть позже.
+# Influence
+**Influence** - это p2p-мессенджер, который работает в сети Hyperboria ([cjdns](https://github.com/cjdelisle/cjdns)). Принципы работы мессенджера описываются в [WhitePaper](https://gitlab.com/ChronosX88/Influence/blob/develop/doc/WhitePaper.md).
