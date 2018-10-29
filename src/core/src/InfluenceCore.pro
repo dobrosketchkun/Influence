@@ -1,15 +1,17 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-10-22T19:25:40
+# Project created by QtCreator 2018-10-29T17:30:26
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += network sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       -= gui
 
-TARGET = Influence
-TEMPLATE = app
+TARGET = InfluenceCore
+TEMPLATE = lib
+
+DEFINES += INFLUENCECORE_LIBRARY
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -22,21 +24,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-CONFIG += c++11
-
 SOURCES += \
-        client/main.cpp \
-        client/view/MainWindow.cpp \
-    core/NetworkManager.cpp
+    classes/NetworkManager.cpp
 
 HEADERS += \
-        client/view/MainWindow.hpp \
-    core/NetworkManager.hpp
+        headers/influencecore_global.h \
+    headers/influencecore_global.h \
+    headers/NetworkManager.hpp
 
-FORMS += \
-        client/ui/MainWindow.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+unix {
+    target.path = /usr/lib
+    INSTALLS += target
+}

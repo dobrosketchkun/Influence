@@ -1,4 +1,4 @@
-#include "NetworkManager.hpp"
+#include "../headers/NetworkManager.hpp"
 
 NetworkManager::NetworkManager(bool isServer)
 {
