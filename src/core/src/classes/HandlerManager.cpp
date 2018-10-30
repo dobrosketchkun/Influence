@@ -1,6 +1,6 @@
 #include "../headers/HandlerManager.hpp"
 
-HandlerManager::HandlerManager()
+HandlerManager::HandlerManager(QObject *parent)  : QObject(parent)
 {
     using namespace std::placeholders;
     handlerList = {

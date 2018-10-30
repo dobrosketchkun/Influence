@@ -5,11 +5,11 @@
 #include <functional>
 #include "../headers/NetworkManager.hpp"
 
-class Q_DECL_EXPORT HandlerManager
+class Q_DECL_EXPORT HandlerManager : public QObject
 {
 
     public:
-        HandlerManager();
+        explicit HandlerManager(QObject *parent = nullptr);
         ~HandlerManager();
     private:
         NetworkManager *networkManager = new NetworkManager(true);

@@ -6,12 +6,12 @@
 #include <QJsonDocument>
 #include <QNetworkInterface>
 
-class NetworkManager
+class NetworkManager : public QObject
 {
     Q_OBJECT
 
     public:
-        NetworkManager(bool isServer = false);
+        explicit NetworkManager(QObject *parent = nullptr, bool isServer = false);
         ~NetworkManager();
         void sendDatagram(QJsonObject data, QString ipv6);
         static QString localIPv6();

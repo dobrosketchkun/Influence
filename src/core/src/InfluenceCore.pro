@@ -27,13 +27,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     classes/NetworkManager.cpp \
-    classes/HandlerManager.cpp
+    classes/HandlerManager.cpp \
+    classes/DBManager.cpp
 
 HEADERS += \
     headers/influencecore_global.h \
     headers/influencecore_global.h \
     headers/NetworkManager.hpp \
-    headers/HandlerManager.hpp
+    headers/HandlerManager.hpp \
+    headers/DBManager.hpp
 
 unix {
     target.path = /usr/lib
