@@ -3,11 +3,13 @@
 NetworkManager::NetworkManager(bool isServer)
 {
     udpSocket = new QUdpSocket();
+
     if (isServer)
     {
         udpSocket->bind(QHostAddress::AnyIPv6, 16532);
         QObject::connect(udpSocket, &QUdpSocket::readyRead, this, &NetworkManager::processTheDatagram);
     }
+
     myIPv6 = new QString(localIPv6());
 }
 
@@ -54,5 +56,4 @@ QString NetworkManager::localIPv6()
 NetworkManager::~NetworkManager()
 {
     delete udpSocket;
-    delete myIPv6;
 }
