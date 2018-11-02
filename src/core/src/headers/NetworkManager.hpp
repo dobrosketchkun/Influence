@@ -11,7 +11,7 @@ class NetworkManager : public QObject
     Q_OBJECT
 
     public:
-        explicit NetworkManager(QObject *parent = nullptr, bool isServer = false);
+        explicit NetworkManager(bool isServer = false, QObject *parent = nullptr);
         ~NetworkManager();
         void sendDatagram(QJsonObject data, QString ipv6);
         static QString localIPv6();

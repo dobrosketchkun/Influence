@@ -1,6 +1,6 @@
 #include "../headers/NetworkManager.hpp"
 
-NetworkManager::NetworkManager(QObject *parent, bool isServer)  : QObject(parent)
+NetworkManager::NetworkManager(bool isServer, QObject *parent)  : QObject(parent)
 {
     udpSocket = new QUdpSocket();
 
