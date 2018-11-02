@@ -3,10 +3,33 @@
 DBManager::DBManager(QObject *parent) : QObject(parent)
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("InfluenceDB.sqlite");
+    db.setDatabaseName("database.db");
+}
 
-    if(!db.open())
+QJsonArray DBManager::executeSelectQuery(QString queryString)
+{
+    QJsonArray jsonArray;
+    QSqlQuery query(queryString, db);
+    while(query.next())
+      {
+         QJsonObject recordObject;
+         for(int i = 0; i < query.record().count(); i++)
+         {
+            recordObject.insert(query.record().fieldName(i), QJsonValue::fromVariant(query.value(i)));
+         }
+         jsonArray.push_back(recordObject);
+      }
+
+    return jsonArray;
+}
+
+bool DBManager::executeInsertQuery(QString queryString)
+{
+    QSqlQuery query;
+    if(!query.exec(queryString))
     {
-        //TODO
+        return false;
     }
+
+    return true;
 }
